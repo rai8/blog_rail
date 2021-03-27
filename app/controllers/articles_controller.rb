@@ -20,7 +20,29 @@ class ArticlesController < ApplicationController
     else
       render :new
     end
+  end
+
+  #page to handle editing of an article
+  def edit
+    @article= Article.find(params[:id])
+  end
+
+  #handling update 
+  def update
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render :edit
     end
+  end
+
+  #destroy an article
+  def destroy
+    @article= Article.find(params[:id])
+    @article.destroy
+    redirect_to root_path
+  end
   #adding private params- security
   private
   def article_params
