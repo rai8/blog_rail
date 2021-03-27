@@ -4,7 +4,8 @@ Rails.application.routes.draw do
  #adding a root route
  root "articles#index"
  
-  get "/articles", to: "articles#index"
+ # get "/articles", to: "articles#index"
   #article to show one single detail using id
-  get "/articles/:id", to: "articles#show"
+ # get "/articles/:id", to: "articles#show"
+ resources :articles
 end
