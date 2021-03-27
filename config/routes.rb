@@ -7,5 +7,7 @@ Rails.application.routes.draw do
  # get "/articles", to: "articles#index"
   #article to show one single detail using id
  # get "/articles/:id", to: "articles#show"
- resources :articles
+ resources :articles do
+  resources :comments
+ end
 end
